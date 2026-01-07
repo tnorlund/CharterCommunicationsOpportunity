@@ -1,0 +1,46 @@
+[project]
+name = "imdb-actor-comparison"
+version = "0.1.0"
+description = "Compare movie ratings for Bill Murray and Owen Wilson using IMDB datasets"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.0.0",
+    "requests>=2.28.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+    "pylint>=3.0.0",
+    "pandas-stubs",
+    "types-requests",
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+imdb-compare = "imdb_compare:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pylint.format]
+max-line-length = 79
+
+[tool.pylint.messages_control]
+disable = ["C0114", "C0115", "C0116"]
